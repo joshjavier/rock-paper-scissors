@@ -50,18 +50,11 @@
             break;
         }
 
-        // Log the result into the console
-        switch (result) {
-          case WIN:
-            console.log(`You Win! ${titleCase(playerSelection)} beats ${titleCase(computerSelection)}`);
-            break;
-          case LOSE:
-            console.log(`You Lose! ${titleCase(computerSelection)} beats ${titleCase(playerSelection)}`);
-            break;
-          case DRAW:
-            console.log(`Draw! Both Player and Computer chose ${titleCase(computerSelection)}`);
-            break;
-        }
+        console.log(
+          (result === WIN) ? `You Win! ${titleCase(playerSelection)} beats ${titleCase(computerSelection)}` :
+          (result === LOSE) ? `You Lose! ${titleCase(computerSelection)} beats ${titleCase(playerSelection)}` :
+          `Draw! Both Player and Computer chose ${titleCase(computerSelection)}`
+        );
 
         return result;
       }
