@@ -2,104 +2,28 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Play Rock Paper Scissors!</title>
   </head>
   <body>
-    <script>
-      /* Helper Functions */
-      function random(int) {
-        return Math.floor(Math.random() * int);
-      }
 
-      function titleCase(str) {
-        return str[0].toUpperCase() + str.slice(1,).toLowerCase();
-      }
+    <!-- Buttons -->
+    <h2>Choose your weapon:</h2>
+    <section>
+      <button type="button" value="rock">Rock</button>
+      <button type="button" value="paper">Paper</button>
+      <button type="button" value="scissors">Scissors</button>
+    </section>
 
-      /* Main */
-      const ROCK = 'rock';
-      const PAPER = 'paper';
-      const SCISSORS = 'scissors';
-      const RPS = [ROCK, PAPER, SCISSORS];
+    <!-- Computer Selection -->
+    <p>The computer chose:</p> <!-- temp -->
+    <div>
+      <p id="computer"></p>
+    </div>
 
-      function computerPlay() {
-        return RPS[random(RPS.length)];
-      }
+    <!-- Result -->
+    <p id="result"></p>
 
-      function playRound(playerSelection, computerSelection) {
-        const WIN = 'win';
-        const LOSE = 'lose';
-        const DRAW = 'draw';
-
-        let result;
-        switch (computerSelection) {
-          case ROCK:
-            result = (playerSelection === PAPER) ? WIN :
-              (playerSelection === SCISSORS) ? LOSE :
-              DRAW;
-            break;
-          case PAPER:
-            result = (playerSelection === SCISSORS) ? WIN :
-              (playerSelection === ROCK) ? LOSE :
-              DRAW;
-            break;
-          case SCISSORS:
-            result = (playerSelection === ROCK) ? WIN :
-              (playerSelection === PAPER) ? LOSE :
-              DRAW;
-            break;
-        }
-
-        console.log(
-          (result === WIN) ? `You Win! ${titleCase(playerSelection)} beats ${titleCase(computerSelection)}` :
-          (result === LOSE) ? `You Lose! ${titleCase(computerSelection)} beats ${titleCase(playerSelection)}` :
-          `Draw! Both Player and Computer chose ${titleCase(computerSelection)}`
-        );
-
-        return result;
-      }
-
-      function game(rounds = 5) {
-        const PLAYER = 'You';
-        const COMPUTER = 'Computer';
-        let playerScore = 0;
-        let computerScore = 0;
-
-        for (let i = 0; i < rounds; i++) {
-          // Ask user to choose their hand
-          let playerSelection;
-          while (!RPS.includes(playerSelection)) {
-            playerSelection = prompt(
-              'Choose: rock, paper, or scissors? (Leave blank to quit.)', ''
-            ).toLowerCase();
-            if (!playerSelection) return;
-          }
-          // console.log(playerSelection);
-
-          // Play a round and display the result
-          let result = playRound(playerSelection, computerPlay());
-
-          // Assign a score depending on the result
-          if (result === 'win') {
-            playerScore++;
-          } else if (result === 'lose') {
-            computerScore++;
-          }
-        }
-
-        // Tally the scores and show the winner
-        let winner = (playerScore > computerScore) ? PLAYER :
-                     (playerScore < computerScore) ? COMPUTER :
-                     '';
-
-        console.log("Player: " + playerScore);
-        console.log("Computer: " + computerScore);
-        console.log(
-          (winner) ? `${titleCase(winner)} won the game!` : 'There is no winner lol'
-        );
-
-        return;
-      }
-    </script>
   </body>
+  <script src="game.js"></script>
 </html>
