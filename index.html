@@ -6,43 +6,57 @@
     <title>Play Rock Paper Scissors!</title>
   </head>
   <body>
+    <header>
+      <h1>Rock Paper Scissors</h1>
+      <p>Race to 5</p>
+    </header>
 
-    <h1>Rock Paper Scissors</h1>
-
-    <div id="gameboard">
-      <div id="player">
-        <p>Choose your weapon</p>
-        <button type="button" value="rock">Rock</button>
-        <button type="button" value="paper">Paper</button>
-        <button type="button" value="scissors">Scissors</button>
+    <main>
+      <div id="currentRound">
+        <h2>Round <span>1</span></h2>
+        <div id="buttons">
+          <button type="button" data-value="rock">Rock</button>
+          <button type="button" data-value="paper">Paper</button>
+          <button type="button" data-value="scissors">Scissors</button>
+        </div>
+        <div id="plays">
+          <div id="playerPlay">?</div>
+          <strong>vs</strong>
+          <div id="computerPlay">?</div>
+        </div>
       </div>
 
-      <div id="computer">
-        <p>Computer</p>
-        <button type="button" disabled="disabled">?</button>
+      <div id="result">
+        <p><strong>Paper</strong> beats <strong>Rock</strong></p>
+        <p>Computer wins Round <span>1</span>.</p>
       </div>
-    </div>
-
-    <!-- Result -->
-    <p id="result"> </p>
+    </main>
 
     <div id="scoreboard">
-      <h3>Scores</h3>
-      <p>Player: <span id="playerScore">0</span></p>
-      <p>Computer: <span id="computerScore">0</span></p>
+      <h2>Scores</h2>
+      <div> Player: 
+        <strong id="playerScore">0</strong>
+      </div>
+      <div> Computer: 
+        <strong id="computerScore">0</strong>
+      </div>
     </div>
 
-    <section>
-      <h2 id="winner"></h2>
-    </section>
-
-    <button type="button" style="visibility: hidden;">Play Again</button>
+    <main style="display: none;">
+      <p>YOU WON!</p>
+      <button type="button">Play Again</button>
+    </main>
     <!--
       What this should do:
       - clear scoreboard
       - return computer button to ?
     -->
 
+    <footer>
+      <a href="https://github.com/googlefonts/noto-emoji" target="_blank">Noto Emoji</a> icons by Google.
+      <a href="https://github.com/joshjavier/rock-paper-scissors" target="_blank">Code</a> by
+      <a href="https://github.com/joshjavier" target="_blank">Josh Javier</a>.
+    </footer>
   </body>
   <script src="scripts/main.js"></script>
 </html>
