@@ -7,23 +7,42 @@
   </head>
   <body>
 
-    <!-- Buttons -->
-    <h2>Choose your weapon:</h2>
-    <section>
-      <button type="button" value="rock">Rock</button>
-      <button type="button" value="paper">Paper</button>
-      <button type="button" value="scissors">Scissors</button>
-    </section>
+    <h1>Rock Paper Scissors</h1>
 
-    <!-- Computer Selection -->
-    <p>The computer chose:</p> <!-- temp -->
-    <div>
-      <p id="computer"></p>
+    <div id="gameboard">
+      <div id="player">
+        <p>Choose your weapon</p>
+        <button type="button" value="rock">Rock</button>
+        <button type="button" value="paper">Paper</button>
+        <button type="button" value="scissors">Scissors</button>
+      </div>
+
+      <div id="computer">
+        <p>Computer</p>
+        <button type="button" disabled="disabled">?</button>
+      </div>
     </div>
 
     <!-- Result -->
-    <p id="result"></p>
+    <p id="result"> </p>
+
+    <div id="scoreboard">
+      <h3>Scores</h3>
+      <p>Player: <span id="playerScore">0</span></p>
+      <p>Computer: <span id="computerScore">0</span></p>
+    </div>
+
+    <section>
+      <h2 id="winner"></h2>
+    </section>
+
+    <button type="button" style="visibility: hidden;">Play Again</button>
+    <!--
+      What this should do:
+      - clear scoreboard
+      - return computer button to ?
+    -->
 
   </body>
-  <script src="game.js"></script>
+  <script src="scripts/main.js"></script>
 </html>
