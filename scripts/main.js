@@ -40,28 +40,45 @@ function playRound(playerSelection, computerSelection) {
 
 // 2021-02-19
 // Working on UI buttons
-const playerButtons = document.querySelectorAll('#player > button');
-const computerButton = document.querySelector('#computer > button');
+const buttons = document.querySelectorAll('#buttons > button');
 const result = document.querySelector('#result');
+let counter = 1;
 
 let scores = { player: 0, computer: 0 };
 
-playerButtons.forEach((button) => {
+buttons.forEach((button) => {
   button.addEventListener('click', (e) => {
-    const playerSelection = e.target.value;
+    const playerSelection = e.target.dataset.value;
     const computerSelection = computerPlay();
 
-    // Show what computer will play
-    computerButton.textContent = titleCase(computerSelection);
+    // Display what player and computer will play
+    const [playerPick, computerPick] = document.querySelectorAll('#plays > div');
+    playerPick.textContent = titleCase(playerSelection);
+    computerPick.textContent = titleCase(computerSelection);
 
+    // Determine the match results
     const round = playRound(playerSelection, computerSelection);
-    result.textContent = (round === 'win') ? 'You Win!'
-                       : (round === 'lose') ? 'You Lose!'
-                       : 'Draw!';
+    let winner, winningHand, losingHand;
+    if (round === WIN) {
+      winner = 'You';
+      winningHand = titleCase(playerSelection);
+      losingHand = titleCase(computerSelection);
+    } else if (round === LOSE) {
+      winner = 'Computer';
+      winningHand = titleCase(computerSelection);
+      losingHand = titleCase(playerSelection);
+    } else {
+      winner = 'Nobody';
+      losingHand = titleCase(playerSelection); // for Draw cases
+    }
 
+    printResults(winner, winningHand, losingHand);
     assignPoints(round);
     printScores(scores);
 
+    // Prepare for the next round
+    const roundNum = document.querySelector('#round');
+    roundNum.textContent = ++counter;
   });
 });
 
@@ -79,6 +96,25 @@ function printScores(scores) { // print the scores on the page
   const computerScore = document.querySelector('#computerScore');
   playerScore.textContent = scores.player;
   computerScore.textContent = scores.computer;
+}
+
+function printResults(winner, winningHand, losingHand) {
+  const line1 = document.createElement('p');
+  if (winningHand) {
+    line1.innerHTML = `<em>${winningHand}</em> beats <em>${losingHand}</em>`;
+  } else {
+    line1.innerHTML = `Both player and computer played <em>${titleCase(losingHand)}</em>`;
+  }
+
+  const line2 = document.createElement('p');
+  line2.innerHTML = `${winner} won in Round ${counter}.`;
+
+  // clear previous results
+  [...result.children].forEach((child) => result.removeChild(child));
+  // append new results
+  [line1, line2].forEach((line) => result.appendChild(line));
+  // then log into the console for those who want a history
+  [...result.children].forEach((child) => console.log(child.textContent));
 }
 
 function checkWinner() {

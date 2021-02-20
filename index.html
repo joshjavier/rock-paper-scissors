@@ -13,23 +13,20 @@
 
     <main>
       <div id="currentRound">
-        <h2>Round <span>1</span></h2>
+        <h2>Round <span id="round">1</span></h2>
         <div id="buttons">
           <button type="button" data-value="rock">Rock</button>
           <button type="button" data-value="paper">Paper</button>
           <button type="button" data-value="scissors">Scissors</button>
         </div>
         <div id="plays">
-          <div id="playerPlay">?</div>
+          <div id="playerPick">?</div>
           <strong>vs</strong>
-          <div id="computerPlay">?</div>
+          <div id="computerPick">?</div>
         </div>
       </div>
 
-      <div id="result">
-        <p><strong>Paper</strong> beats <strong>Rock</strong></p>
-        <p>Computer wins Round <span>1</span>.</p>
-      </div>
+      <div id="result"></div>
     </main>
 
     <div id="scoreboard">
@@ -53,9 +50,11 @@
     -->
 
     <footer>
-      <a href="https://github.com/googlefonts/noto-emoji" target="_blank">Noto Emoji</a> icons by Google.
-      <a href="https://github.com/joshjavier/rock-paper-scissors" target="_blank">Code</a> by
-      <a href="https://github.com/joshjavier" target="_blank">Josh Javier</a>.
+      <small>
+        <a href="https://github.com/googlefonts/noto-emoji" target="_blank">Noto Emoji</a> icons by Google.
+        <a href="https://github.com/joshjavier/rock-paper-scissors" target="_blank">Code</a> and UI by
+        <a href="https://github.com/joshjavier" target="_blank">Josh Javier</a>.
+      </small>
     </footer>
   </body>
   <script src="scripts/main.js"></script>
