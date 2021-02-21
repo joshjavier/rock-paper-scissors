@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,11 +15,14 @@
     <main>
       <div id="currentRound">
         <h2>Round <span id="round">1</span></h2>
+
         <div id="buttons">
+          <!-- Should I just use id instead of a custom data-value attribute? -->
           <button type="button" data-value="rock">Rock</button>
           <button type="button" data-value="paper">Paper</button>
           <button type="button" data-value="scissors">Scissors</button>
         </div>
+
         <div id="plays">
           <div id="playerPick">?</div>
           <strong>vs</strong>
@@ -28,6 +31,11 @@
       </div>
 
       <div id="result"></div>
+
+      <div id="endgame" style="display: none;">
+        <p><strong>YOU WON THE GAME!</strong></p>
+        <button type="button" id="resetGame">Play Again</button>
+      </div>
     </main>
 
     <section id="scoreboard">
@@ -38,12 +46,8 @@
       <div> Computer: 
         <strong id="computerScore">0</strong>
       </div>
-    </div>
+    </section>
 
-    <main style="display: none;">
-      <p>YOU WON!</p>
-      <button type="button">Play Again</button>
-    </main>
     <!--
       What this should do:
       - clear scoreboard
@@ -51,13 +55,13 @@
     -->
 
     <footer>
-      <p>
-        <small>
-          <a href="https://github.com/googlefonts/noto-emoji" target="_blank">Noto Emoji</a> icons by Google.
-          <a href="https://github.com/joshjavier/rock-paper-scissors" target="_blank">Code</a> and UI by
-          <a href="https://github.com/joshjavier" target="_blank">Josh Javier</a>.
-        </small>
-      </p>
+      <small>
+        <a href="https://github.com/googlefonts/noto-emoji" target="_blank">Noto Emoji</a> icons by Google.
+      </small>
+      <small>
+        <a href="https://github.com/joshjavier/rock-paper-scissors" target="_blank">Code</a> and UI by
+        <a href="https://github.com/joshjavier" target="_blank">Josh Javier</a>.
+      </small>
     </footer>
   </body>
   <script src="scripts/main.js"></script>
