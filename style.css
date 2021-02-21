@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Consolas, monospace;
+}
+
+/* General page styles */
+
+body {
+  margin: 0;
+  text-align: center;
+}
+
+/* Header and footer styles */
+
+header {
+  text-align: center;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background: pink;
+}
+
+footer > * {
+  /* margin: 0.5em auto; */
+}
+
+/* Main section styles */
+
+main {
+  border: 1px solid black;
+  padding: 1em;
+}
+
+#plays {
+  display: flex;
+  justify-content: center;
+  margin: 5em;
+  gap: 1em;
+}
+
+/* Scoreboard styles */

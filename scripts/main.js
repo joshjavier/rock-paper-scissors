@@ -42,9 +42,8 @@ function playRound(playerSelection, computerSelection) {
 // Working on UI buttons
 const buttons = document.querySelectorAll('#buttons > button');
 const result = document.querySelector('#result');
-let counter = 1;
-
 let scores = { player: 0, computer: 0 };
+let counter = 1;
 
 buttons.forEach((button) => {
   button.addEventListener('click', (e) => {
@@ -69,7 +68,7 @@ buttons.forEach((button) => {
       losingHand = titleCase(playerSelection);
     } else {
       winner = 'Nobody';
-      losingHand = titleCase(playerSelection); // for Draw cases
+      losingHand = titleCase(playerSelection); // for Draw results
     }
 
     printResults(winner, winningHand, losingHand);
