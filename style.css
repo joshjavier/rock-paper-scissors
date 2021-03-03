@@ -1,0 +1,100 @@
+/**************************************************
+*
+* Resets
+*
+**************************************************/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+/**************************************************
+*
+* General styles
+*
+**************************************************/
+
+html {
+  font-family: 'Comic Sans MS', sans-serif;
+  text-align: center;
+}
+
+body {
+  background: url('img/dot-grid.png'); /* Background pattern from Toptal Subtle Patterns */
+  padding-bottom: 39px;
+}
+
+h2 {
+  margin-bottom: 0.5em;
+}
+
+button {
+  cursor: pointer;
+  margin: 1em;
+}
+
+/**************************************************
+*
+* Layout
+*
+**************************************************/
+
+header {
+  margin: 3em 1em 3em 1em;
+}
+
+#choices, #result, #scoreboard {
+  margin: 2.5em;
+}
+
+#choices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5em;
+  height: 80px;
+}
+
+#choices > div {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 0.5em;
+  /* height: 50px; */
+}
+
+footer a {
+  color: inherit;
+  transition: color ease 0.1s;
+}
+
+footer a:hover {
+  color: red;
+}
+
+/**************************************************
+*
+* Fancy stuff
+*
+**************************************************/
+
+.rainbow-text {
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

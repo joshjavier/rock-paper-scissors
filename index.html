@@ -1,112 +1,58 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-  </head>
-  <body>
-    <script>
-      /* Helper Functions */
-      function random(int) {
-        return Math.floor(Math.random() * int);
-      }
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Play Rock Paper Scissors!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 class="rainbow-text">Rock Paper Scissors</h1>
+    <p>Score 5 points to win the game!</p>
+  </header>
 
-      function titleCase(str) {
-        return str[0].toUpperCase() + str.slice(1,).toLowerCase();
-      }
+  <div>
+    <h2><span id="currentRound">Round </span><span id="round">1</span></h2>
 
-      /* Main */
-      const ROCK = 'rock';
-      const PAPER = 'paper';
-      const SCISSORS = 'scissors';
-      const RPS = [ROCK, PAPER, SCISSORS];
+    <div id="buttons">
+      <!-- Should I just use id instead of a custom data-value attribute? -->
+      <button type="button" id="rock">Rock</button>
+      <button type="button" id="paper">Paper</button>
+      <button type="button" id="scissors">Scissors</button>
+    </div>
 
-      function computerPlay() {
-        return RPS[random(RPS.length)];
-      }
+    <div id="choices">
+      <div id="playerChoice">?</div>
+      <strong><em>vs</em></strong>
+      <div id="computerChoice">?</div>
+    </div>
+  </div>
 
-      function playRound(playerSelection, computerSelection) {
-        const WIN = 'win';
-        const LOSE = 'lose';
-        const DRAW = 'draw';
+  <div id="result">
+    <p id="resultMsg"><!-- Result message will show here. --></p>
+    <button type="button" id="reset" style="display: none;">Play Again</button>
+  </div>
 
-        let result;
-        switch (computerSelection) {
-          case ROCK:
-            result = (playerSelection === PAPER) ? WIN :
-              (playerSelection === SCISSORS) ? LOSE :
-              DRAW;
-            break;
-          case PAPER:
-            result = (playerSelection === SCISSORS) ? WIN :
-              (playerSelection === ROCK) ? LOSE :
-              DRAW;
-            break;
-          case SCISSORS:
-            result = (playerSelection === ROCK) ? WIN :
-              (playerSelection === PAPER) ? LOSE :
-              DRAW;
-            break;
-        }
+  <div id="scoreboard">
+    <h2>Scores</h2>
+    <div> Player: 
+      <strong id="playerScore">0</strong>
+    </div>
+    <div> Computer: 
+      <strong id="computerScore">0</strong>
+    </div>
+  </div>
 
-        // Log the result into the console
-        switch (result) {
-          case WIN:
-            console.log(`You Win! ${titleCase(playerSelection)} beats ${titleCase(computerSelection)}`);
-            break;
-          case LOSE:
-            console.log(`You Lose! ${titleCase(computerSelection)} beats ${titleCase(playerSelection)}`);
-            break;
-          case DRAW:
-            console.log(`Draw! Both Player and Computer chose ${titleCase(computerSelection)}`);
-            break;
-        }
-
-        return result;
-      }
-
-      function game(rounds = 5) {
-        const PLAYER = 'You';
-        const COMPUTER = 'Computer';
-        let playerScore = 0;
-        let computerScore = 0;
-
-        for (let i = 0; i < rounds; i++) {
-          // Ask user to choose their hand
-          let playerSelection;
-          while (!RPS.includes(playerSelection)) {
-            playerSelection = prompt(
-              'Choose: rock, paper, or scissors? (Leave blank to quit.)', ''
-            ).toLowerCase();
-            if (!playerSelection) return;
-          }
-          // console.log(playerSelection);
-
-          // Play a round and display the result
-          let result = playRound(playerSelection, computerPlay());
-
-          // Assign a score depending on the result
-          if (result === 'win') {
-            playerScore++;
-          } else if (result === 'lose') {
-            computerScore++;
-          }
-        }
-
-        // Tally the scores and show the winner
-        let winner = (playerScore > computerScore) ? PLAYER :
-                     (playerScore < computerScore) ? COMPUTER :
-                     '';
-
-        console.log("Player: " + playerScore);
-        console.log("Computer: " + computerScore);
-        console.log(
-          (winner) ? `${titleCase(winner)} won the game!` : 'There is no winner lol'
-        );
-
-        return;
-      }
-    </script>
-  </body>
+  <footer>
+    <p>
+      <small>
+        <a href="https://github.com/googlefonts/noto-emoji" target="_blank">Noto Emoji</a> icons by Google.
+        <a href="https://github.com/joshjavier/rock-paper-scissors" target="_blank">Coded from scratch</a> by
+        <a href="https://github.com/joshjavier" target="_blank">Josh Javier</a>.
+      </small>
+    </p>
+  </footer>
+</body>
+<script src="script.js"></script>
 </html>
